@@ -1,17 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+
+interface AppProps {
+  title: string;
+  color: string;
+}
+
+function App(props: AppProps) {
+  return (
+    <h1>{props.title}</h1>
+  )
+}
 
 ReactDOM.render(
+  // strict 모드는 리액트 입장에서 문제라고 생각되는 것을 경고한다.
   <React.StrictMode>
-    <App />
+    <App title='hello' color='blue' />
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
